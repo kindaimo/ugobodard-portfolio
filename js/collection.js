@@ -667,22 +667,7 @@ const artworks = window.collectionConfig?.artworks || [
 ];
 
 function getOriginalImagePath(index) {
-    const artwork = artworks[index];
-
-    if (artwork.originalImage) {
-        return artwork.originalImage;
-    }
-
-    const number = index + 1;
-    let extension = "jpeg";
-
-    if (number === 8 || number === 10) {
-        extension = "jpg";
-    } else if (number === 9) {
-        extension = "png";
-    }
-
-    return `../images/H${number}.${extension}`;
+    return artworks[index].image;
 }
 
 const preloadedImages = artworks.map((artwork) => {
