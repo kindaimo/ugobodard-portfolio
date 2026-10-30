@@ -998,6 +998,11 @@ function updateGallery(direction = 0) {
 
         artworkTitle.textContent =
             current.title;
+        
+        artworkTitle.classList.toggle(
+            "japanese-title",
+            current.titleFont === "japanese"
+        );
 
 
         previousArtwork.querySelector("img").src =

@@ -632,3 +632,8 @@ body.magnifier-active .custom-cursor {
         font-size: 9px;
     }
 }
+#artworkTitle.japanese-title {
+    font-family: "Noto Serif JP", serif;
+    letter-spacing: 0.05em;
+    font-size: 1.4rem;
+}
