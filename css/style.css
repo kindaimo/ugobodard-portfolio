@@ -273,6 +273,7 @@ nav{
     position: absolute;
 
     left: 2vw;
+    top: 7vh;
 
     z-index: 2;
 }
