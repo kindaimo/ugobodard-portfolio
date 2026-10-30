@@ -1,0 +1,543 @@
+/* =========================================================
+   VARIABLES / RESET
+========================================================= */
+:root{
+
+    /* Colours */
+
+    --background:#030303;
+    --text:#eee9d9;
+    --secondary:#BEBEB8;
+
+    /* Fonts */
+
+    --title-font:"Courier New", serif;
+    --body-font:"Inter", sans-serif;
+
+    /* Spacing */
+
+    --space-xs:0.5rem;
+    --space-sm:1rem;
+    --space-md:2rem;
+    --space-lg:4rem;
+    --space-xl:8rem;
+
+    /* Container */
+
+    --container-width:1400px;
+
+    /* Animation */
+
+    --transition:300ms ease;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+html{
+    scroll-behavior:smooth;
+}
+body{
+    background:var(--background);
+
+    color:var(--text);
+
+    font-family:var(--body-font);
+
+    overflow-x:hidden;
+
+    position: relative;
+}
+a,
+button,
+input,
+textarea,
+select,
+[role="button"] {
+    cursor: none;
+}
+* {
+    cursor: none !important;
+}
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .custom-cursor {
+        display: none;
+    }
+
+    #character-hover {
+        display: none;
+    }
+
+}
+
+.custom-cursor {
+    position: fixed;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: var(--text);
+
+    pointer-events: none;
+
+    z-index: 2147483647;
+
+    transform: translate(-50%, -50%);
+
+    mix-blend-mode: difference;
+
+    transition:
+        width 0.2s ease,
+        height 0.2s ease;
+}
+.custom-cursor.active {
+    width: 28px;
+    height: 28px;
+}
+
+/* =========================================================
+   CHARACTER BACKGROUND
+========================================================= */
+
+.character-background {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+#character-base,
+#character-hover {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+#character-hover {
+    pointer-events: none;
+}
+.character {
+    display: block;
+
+    text-align: center;
+
+    opacity: 0.7;
+
+    user-select: none;
+}
+
+/* =========================================================
+   HEADER / NAVIGATION
+========================================================= */
+
+header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    background: var(--background);
+
+    z-index: 1000;
+}
+nav{
+    height: 100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding: 0 1.5rem;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+
+    height: 55px;
+
+    width: auto;
+
+    transition:transform var(--transition);
+
+}
+.logo:hover img {
+
+    transform: scale(1.05);
+
+}
+.nav-links {
+    display:flex;
+
+    gap:3rem;
+
+    list-style:none;
+}
+.nav-links a {
+
+    font-family: "Courier New", monospace;
+
+    color:var(--text);
+
+    text-decoration:none;
+
+    font-size:0.95rem;
+
+    transition:opacity var(--transition);
+}
+.nav-links a:hover{
+
+    opacity:.6;
+
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+    position: relative;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: 0;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+.intro {
+    position: relative;
+    height: calc(20vh + 83vw);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 100svh;
+    }
+
+}
+.hero {
+    position: relative;
+    z-index: 2;
+}
+.hero-title {
+    width: 90vw;
+    max-width: 1600px;
+
+    position: absolute;
+
+    left: 2vw;
+    top: 10vh;
+
+    z-index: 2;
+}
+.hero-logo {
+    display: block;
+    width: 90vw;
+    max-width: 1600px;
+    height: auto;
+}
+.hero-name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(5rem, 15vw, 16rem);
+    font-weight: 400;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+}
+.hero-name span {
+    display: block;
+    position: relative;
+    color: var(--text);
+    isolation: isolate;
+}
+.hero-name span::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: var(--text);
+    filter: blur(7px);
+    opacity: 0.9;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent 10%,
+        black 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent 10%,
+        black 100%
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+/* =========================================================
+   FEATURED ARTWORK
+========================================================= */
+
+.featured .container {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+.featured {
+    position: absolute;
+
+    top: calc(20vh + 18vw);
+    right: 0;
+
+    width: 65vw;
+    aspect-ratio: 1 / 1;
+
+    z-index: 0;
+
+    overflow: hidden;
+}
+.featured img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: 50% 50%;
+
+    transform: scale(2) translate(-10%, 20%);
+
+    display: block;
+}
+
+/* =========================================================
+   COLLECTION CARDS
+========================================================= */
+
+.collections {
+    padding: var(--space-xl) 6vw;
+}
+.collection-card{
+
+    position:relative;
+
+    color:var(--text);
+
+    text-decoration:none;
+
+    display:block;
+
+    height:150px;
+
+    border-radius:0;
+
+    overflow:hidden;
+
+    margin-bottom:0rem;
+
+
+}
+.collection-card img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    filter:grayscale(100%) contrast(140%) brightness(.35);
+
+    transition: filter 600ms ease;
+    will-change: filter;
+
+}
+.human-form-image{
+    object-position: center 45%;
+}
+.fine-line-image{
+    object-position: center 2%;
+}
+.plants-image{
+    object-position: center 50%;
+}
+.cosmopolitan-image{
+    object-position: center 17%;
+}
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        to right,
+
+        rgba(0,0,0,.45),
+
+        rgba(0,0,0,.25)
+
+    );
+
+}
+.card-content{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:top;
+
+    padding:1rem;
+
+}
+.card-content h3{
+
+    font-family:var(--title-font);
+
+    font-size:1.5rem;
+
+    font-weight:300;
+
+    letter-spacing:3px;
+
+}
+.card-content span{
+
+    font-size:2rem;
+
+    transition:transform .4s ease;
+
+}
+.collection-card:hover img{
+
+    filter:grayscale(100%) contrast(140%) brightness(1);
+
+}
+.collection-card:hover span{
+
+    transform:translateX(10px);
+
+}
+.collections .collection-card:nth-of-type(1) {
+    width: 60%;
+    height: 200px;
+    margin-bottom: 4rem;
+}
+.collections .collection-card:nth-of-type(2) {
+    width: 70%;
+    height: 240px;
+    margin-left: auto;
+    margin-bottom: 5rem;
+}
+.collections .collection-card:nth-of-type(3) {
+    width: 80%;
+    height: 160px;
+    margin-left: 5%;
+    margin-bottom: 3rem;
+}
+.collections .collection-card:nth-of-type(4) {
+    width: 65%;
+    height: 280px;
+    margin-left: auto;
+    margin-bottom: 4rem;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+    position: relative;
+    min-height:35vh;
+    padding: 0 6vw 2rem;
+}
+
+/* =========================================================
+   GRID EMAIL LINK
+========================================================= */
+
+.grid-email-link {
+    position: absolute;
+
+    display: block;
+
+    z-index: 10;
+
+    background: transparent;
+
+    cursor: none;
+
+    pointer-events: auto;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    position: relative;
+    min-height: 100px;
+    width: 100%;
+}
+.grid-back-to-top {
+    position: absolute;
+    display: block;
+    z-index: 10;
+    background: transparent;
+    cursor: none;
+}

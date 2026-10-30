@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lavishly+Yours&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/collection.css">
+
+    <title>Human Form — Ugo Bodard</title>
+
+</head>
+
+<body>
+    <canvas id="character-base"></canvas>
+    <canvas id="character-hover"></canvas>
+
+    <div class="custom-cursor"></div>
+
+    <header>
+
+        <nav>
+
+            <a href="../index.html" class="logo">
+                <img
+                    src="../images/assets/UB Logo.png"
+                    alt="Ugo Bodard Signature"
+                >
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="../index.html#collections">Collections</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <div class="collection-heading">
+        <img src="../images/assets/P Title.png" alt="Plants" class="collection-title">
+    </div>
+
+
+    <main class="collection-page">
+
+        <section class="artwork-gallery">
+
+            <div class="artwork-stage">
+
+                <!-- Previous artwork -->
+
+                <button
+                    class="side-artwork previous-artwork"
+                    id="previousArtwork"
+                    aria-label="Previous artwork"
+                >
+                    <img src="" alt="">
+                </button>
+
+
+                <!-- Main artwork -->
+
+                <div class="main-artwork" id="mainArtwork">
+
+                    <img
+                        id="mainImage"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+
+                <!-- Next artwork -->
+
+                <button
+                    class="side-artwork next-artwork"
+                    id="nextArtwork"
+                    aria-label="Next artwork"
+                >
+                    <img src="" alt="">
+                </button>
+
+            </div>
+
+
+            <div class="artwork-information">
+
+                <h2 id="artworkTitle">
+                    Artwork
+                </h2>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FULLSCREEN IMAGE VIEWER -->
+    <div class="image-viewer" id="imageViewer" aria-hidden="true">
+        <button
+            class="viewer-close"
+            id="viewerClose"
+            type="button"
+            aria-label="Close image viewer"
+        >×</button>
+
+        <button
+            class="viewer-arrow viewer-previous"
+            id="viewerPrevious"
+            type="button"
+            aria-label="Previous artwork"
+        >←</button>
+
+        <div class="viewer-content" id="viewerContent">
+            <img id="viewerImage" src="" alt="">
+        </div>
+
+        <div class="magnifier-lens" id="magnifierLens" aria-hidden="true">
+            <img id="magnifierLensImage" src="" alt="">
+        </div>
+
+        <button
+            class="viewer-arrow viewer-next"
+            id="viewerNext"
+            type="button"
+            aria-label="Next artwork"
+        >→</button>
+
+        <div class="viewer-controls">
+            <button id="viewerZoomOut" type="button" aria-label="Zoom out">−</button>
+            <span id="viewerZoomLevel">100%</span>
+            <button id="viewerZoomIn" type="button" aria-label="Zoom in">+</button>
+            <button id="viewerZoomReset" type="button">RESET</button>
+        </div>
+
+        <div class="viewer-caption" id="viewerCaption"></div>
+    </div>
+
+    <script>
+    window.collectionConfig = {
+        name: "Plants",
+        artworks: Array.from({ length: 12 }, (_, i) => {
+            const number = i + 1;
+            return {
+                image: `../images/Webp/Plants/P${number}.webp`,
+                title: `Artwork ${String(number).padStart(2, "0")}`,
+                meta: "Plants",
+                originalImage: `../images/P${number}.jpeg`
+            };
+        })
+    };
+    </script>
+
+    <script src="../js/collection.js"></script>
+
+</body>
+
+</html>
