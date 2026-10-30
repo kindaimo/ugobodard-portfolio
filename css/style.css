@@ -541,3 +541,20 @@ footer {
     background: transparent;
     cursor: none;
 }
+@media (max-width: 600px) {
+    .collection-card {
+        position: relative;
+        z-index: 1;
+        touch-action: manipulation;
+    }
+
+    .collection-card .overlay,
+    .collection-card .card-content {
+        pointer-events: none;
+    }
+
+    .card-content h3 {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+}
