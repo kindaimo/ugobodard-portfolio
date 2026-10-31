@@ -681,7 +681,6 @@ const preloadedImages = artworks.map((artwork) => {
 });
 
 let currentIndex = 0;
-let galleryAnimating = false;
 
 
 /* =========================================================
@@ -1051,34 +1050,20 @@ function updateGallery(direction = 0) {
 
 function goNext() {
 
-    if (galleryAnimating) return;
-
-    galleryAnimating = true;
-
-    currentIndex = getIndex(1);
+    currentIndex =
+        getIndex(1);
 
     updateGallery(1);
-
-    setTimeout(() => {
-        galleryAnimating = false;
-    }, 1000);
 
 }
 
 
 function goPrevious() {
 
-    if (galleryAnimating) return;
-
-    galleryAnimating = true;
-
-    currentIndex = getIndex(-1);
+    currentIndex =
+        getIndex(-1);
 
     updateGallery(-1);
-
-    setTimeout(() => {
-        galleryAnimating = false;
-    }, 1000);
 
 }
 
