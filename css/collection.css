@@ -281,56 +281,63 @@ header {
     .collection-page {
         padding-top: 110px;
     }
+
     .collection-heading {
         padding: 110px 6vw 0;
+        margin-bottom: 5px;
+    }
 
-        margin-bottom: 25px;
+    .collection-title {
+        height: 120px;
     }
-    .collection-heading h1 {
-        font-size: 3rem;
+
+    .collection-title[src*="HF Title"],
+    .collection-title[src*="FL Title"] {
+        height: 150px;
     }
+
     .collection-number {
         font-size: 8px;
     }
+
     .artwork-stage {
         height: 55vh;
-
         min-height: 380px;
-
         gap: 8vw;
     }
+
     .main-artwork {
         width: 70vw;
-
         height: 50vh;
+        transform: none;
     }
+
     .side-artwork {
         position: absolute;
-
         width: 18vw;
-
         height: 35vh;
-
         opacity: .2;
     }
+
     .previous-artwork {
         left: -7vw;
     }
+
     .next-artwork {
         right: -7vw;
     }
+
     .artwork-information {
         width: 70vw;
-
         margin-top: 25px;
     }
+
     .artwork-information h2 {
         font-size: 1.6rem;
-
     }
+
     .gallery-navigation {
         width: 70vw;
-
         margin-top: 30px;
     }
 }
@@ -636,4 +643,15 @@ body.magnifier-active .custom-cursor {
     font-family: "Noto Serif JP", serif;
     letter-spacing: 0.05em;
     font-size: 1.4rem;
+}
+@media (max-width: 600px) {
+    #artworkTitle {
+        font-size: 1rem;
+    }
+
+    #artworkTitle.japanese-title {
+        font-family: "Noto Serif JP", serif;
+        letter-spacing: 0.05em;
+        font-size: 0.9rem;
+    }
 }

@@ -557,4 +557,36 @@ footer {
         font-size: 1rem;
         letter-spacing: 2px;
     }
-}
+    .collection-card:first-of-type {
+        position: relative;
+        z-index: 9999;
+    }
+    .collection-card {
+        height: 110px;
+    }
+
+    .collections .collection-card:nth-of-type(1) {
+        width: 90%;
+        height: 110px;
+        margin: 0 0 2.5rem 0;
+    }
+
+    .collections .collection-card:nth-of-type(2) {
+        width: 90%;
+        height: 110px;
+        margin: 0 0 2.5rem auto;
+    }
+
+    .collections .collection-card:nth-of-type(3) {
+        width: 90%;
+        height: 110px;
+        margin: 0 0 2.5rem 5%;
+    }
+
+    .collections .collection-card:nth-of-type(4) {
+        width: 90%;
+        height: 110px;
+        margin: 0 0 2.5rem auto;
+    }
+
+} 
